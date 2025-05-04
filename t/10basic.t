@@ -203,10 +203,10 @@ foreach my $class ('Data::FlexSerializer', 'Data::FlexSerializer::EmptySubclass'
       $res = $serializer->serialize($data{garbage});
       1;
     };
-    if ($is_sereal) {
-      ok(!$eval_died, "Under Sereal we support serializing plain SvPV");
+    if ($is_sereal or $s_name =~ /^(json|flex|default)/) {
+      ok(!$eval_died, "Under Sereal and JSON we support serializing plain SvPV");
     } else {
-      ok($eval_died, "We should die under Storable and JSON when fed a plain SvPV");
+      ok($eval_died, "We should die under Storable when fed a plain SvPV");
     }
   }
 

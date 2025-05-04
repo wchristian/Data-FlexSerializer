@@ -17,7 +17,7 @@ use Constant::FromGlobal DEBUG => { int => 1, default => 0, env => 1 };
 
 use List::Util qw(min);
 use Storable qw();
-use JSON::XS qw();
+use JSON::XS 4 qw();
 use Sereal::Decoder qw();
 use Sereal::Encoder qw();
 use Compress::Zlib qw(Z_DEFAULT_COMPRESSION);
